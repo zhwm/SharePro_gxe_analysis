@@ -2,7 +2,9 @@
 
 This repo contains scripts for:
 
-1. [simulation studies](sim/)
-2. [visualization](doc/)
+1. [Simulation studies](sim/)
+2. [GxSmoking detection in FFR](dat/)
+3. [GxSex detection in fat distribution](dat/)
+4. [Visualization](plt/)
 
 For example data and usage of SharePro for GxE analysis, please refer to [SharePro_gxe](https://github.com/zhwm/SharePro_gxe).

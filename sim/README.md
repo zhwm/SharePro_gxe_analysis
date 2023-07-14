@@ -39,5 +39,5 @@ for i in $(seq 1 5); do ./Locus$i\.sh; done
 ## Visualize results
 
 ```
-Rscript ../doc/plot_sharepro_gxe_sim.R
+Rscript ../plt/plot_sim.R
 ```
