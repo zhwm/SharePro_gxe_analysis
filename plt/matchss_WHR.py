@@ -14,7 +14,7 @@ def get_AF_diff(path1, path2, cs):
     MA = male.loc[cs['Top_variant'].values,]
     cs['AFdiff'] = np.abs(FE['AF1']-MA['AF1']).values
     mmaf = ((FE['AF1'] * FE['N'] + MA['AF1'] * MA['N'])/(FE['N'] + MA['N'])).values
-    cs['pAFdiff'] = -np.log10(chi2.sf(cs['AFdiff'] ** 2 / mmaf * (1 - mmaf) / (1/FE['N'].values + 1/MA['N'].values),1))
+    cs['pAFdiff'] = -np.log10(chi2.sf(cs['AFdiff'] ** 2 / mmaf * (1 - mmaf) / (1/(2 * FE['N'].values) + 1/(2 * MA['N'].values)),1))
     return cs
 
 

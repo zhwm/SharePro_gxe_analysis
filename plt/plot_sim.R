@@ -101,7 +101,7 @@ ggplot(pvalplt[pvalplt$Adjustment=="SharePro interaction test",], aes(x = pos / 
   ylim(0,5) +
   scale_color_stepsn(n.breaks = 6, colours = c("darkblue","blue","green","orange","red")) +
   labs(color = expression(r^2)) -> plt
-ggsave(paste0(fdir, "SharePro_GxE_example.pdf"),plt,height = 5, width = 4)
+ggsave(paste0(fdir, "SharePro_GxE_example.pdf"),plt,height = 3, width = 4)
 
 pipplt = data.frame(chr = rep(gem$CHR,4),
                     pos = rep(gem$POS,4),
@@ -123,7 +123,7 @@ ggplot(pipplt[pipplt$Adjustment=="SharePro fine-mapping",], aes(x = pos / 100000
   ylab("PIP") + ylim(0,1) +
   scale_color_stepsn(n.breaks = 6, colours = c("darkblue","blue","green","orange","red")) +
   labs(color = expression(r^2)) -> plt
-ggsave(paste0(fdir, "SharePro_finemap_example.pdf"),plt,height = 5, width = 4)
+ggsave(paste0(fdir, "SharePro_finemap_example.pdf"),plt,height = 3, width = 4)
 
 #################################################
 
