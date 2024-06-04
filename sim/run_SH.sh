@@ -1,38 +1,12 @@
 source ~/py3/bin/activate
+
 cd ${1}
 cd ${2}
 
-python ../../pre_SH.py --dir . --loci ${1}
+for i in $(seq 1 50); do python ../../sharepro_gxe_sim.py --z CL$i\.qassoc.gxe --ld ../${1}.ld --save CL$i; done
+for i in $(seq 1 50); do python ../../sharepro_gxe_sim.py --z CM$i\.qassoc.gxe --ld ../${1}.ld --save CM$i; done
+for i in $(seq 1 50); do python ../../sharepro_gxe_sim.py --z CS$i\.qassoc.gxe --ld ../${1}.ld --save CS$i; done
 
-st2=`date +%s.%N`
-python ~/scratch/SharePro_gxe/src/sharepro_gxe.py --zld ACL.zld --zdir . --N 50000 --save SA --prefix ACL --verbose --K 10
-ed2=`date +%s.%N`
-echo $(echo $ed2-$st2 | bc -l) > ACL.time
-
-st2=`date +%s.%N`
-python ~/scratch/SharePro_gxe/src/sharepro_gxe.py --zld ACM.zld --zdir . --N 35000 --save SA --prefix ACM --verbose --K 10
-ed2=`date +%s.%N`
-echo $(echo $ed2-$st2 | bc -l) > ACM.time
-
-st2=`date +%s.%N`
-python ~/scratch/SharePro_gxe/src/sharepro_gxe.py --zld ACS.zld --zdir . --N 30000 --save SA --prefix ACS --verbose --K 10
-ed2=`date +%s.%N`
-echo $(echo $ed2-$st2 | bc -l) > ACS.time
-
-st2=`date +%s.%N`
-python ~/scratch/SharePro_gxe/src/sharepro_gxe.py --zld CS.zld --zdir . --N 25000 5000 --save SH --prefix CS --verbose --K 10 --sigma 1e-2
-ed2=`date +%s.%N`
-echo $(echo $ed2-$st2 | bc -l) > CS.time
-
-st2=`date +%s.%N`
-python ~/scratch/SharePro_gxe/src/sharepro_gxe.py --zld CM.zld --zdir . --N 25000 10000 --save SH --prefix CM --verbose --K 10 --sigma 1e-2
-ed2=`date +%s.%N`
-echo $(echo $ed2-$st2 | bc -l) > CM.time
-
-st2=`date +%s.%N`
-python ~/scratch/SharePro_gxe/src/sharepro_gxe.py --zld CL.zld --zdir . --N 25000 25000 --save SH --prefix CL --verbose --K 10 --sigma 1e-2
-ed2=`date +%s.%N`
-echo $(echo $ed2-$st2 | bc -l) > CL.time
-
-rm *.z
-rm *.log
+for i in $(seq 1 50); do python ../../sharepro_gxe_combine.py --z CL$i --ld ../${1}.ld --save CL$i; done
+for i in $(seq 1 50); do python ../../sharepro_gxe_combine.py --z CM$i --ld ../${1}.ld --save CM$i; done
+for i in $(seq 1 50); do python ../../sharepro_gxe_combine.py --z CS$i --ld ../${1}.ld --save CS$i; done

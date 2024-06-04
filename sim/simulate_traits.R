@@ -1,5 +1,5 @@
 args = commandArgs(trailingOnly=TRUE) #LOCI KC KS hc hs
-set.seed(0)
+set.seed(2023)
 library(data.table)
 
 LO = args[1]

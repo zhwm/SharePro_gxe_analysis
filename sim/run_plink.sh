@@ -1,4 +1,4 @@
-module load plink/1.9b_6.21-x86_64
+module load StdEnv/2020 plink/1.9b_6.21-x86_64
 cd ${1}
 cd ${2}
 
